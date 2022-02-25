@@ -1,48 +1,16 @@
-import { Client } from "./Client.js";
+import { Account } from "./Account.js";
 
-export class CheckingAccount {
+export class CheckingAccount extends Account {
     static accountNumber = 0;
-    agency;
-    _client;
-    _balance = 0;
-    //By default in JS we use the "_" to indicate that an attribute is private and should not be changed.
 
-
-    set cliente(newValue) {
-        if(newValue instanceof Client) {
-            this._client = newValue;
-        }
-    }
-
-    get cliente() {
-        return this._client;
-    }
-
-    get saldo() {
-        return this._balance;
-    }
-
-    constructor(agency, client) {
-        this.agency = agency;
-        this.client = client;
-        this._balance = 0;
+    constructor(client, agency) {
+        super(0, client, agency);
         CheckingAccount.accountNumber += 1;
     }
 
     withdraw(value) {
-        if(this._balance >= value) {
-            this._balance -= value;
-            return value;
-        }
+        let fee = 1.1;
+        return super._withdraw(value, fee);
     }
 
-    deposit(value) {
-        if(value <= 0) return;
-        this._balance += value;
-    }
-
-    transfer(value, checkingAccount) {
-        const amountWithdraw = this.withdraw(value);
-        checkingAccount.deposit(amountWithdraw);
-    }
 }

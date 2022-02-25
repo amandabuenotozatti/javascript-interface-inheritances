@@ -9,13 +9,12 @@ const client1 = new Client("Melissa", 1234567890);
 // JS is an open scope language and therefore it is possible 
 // to visualize any attribute or property of our class
 
-const checkingAccount1 = new CheckingAccount(4002, client1);
+const checkingAccount1 = new CheckingAccount(client1, 4003);
 const savingsAccount1 = new SavingsAccount(50, client1, 4004);
 
 checkingAccount1.deposit(500);
 checkingAccount1.withdraw(100);
 
 console.log(checkingAccount1);
-console.log(savingsAccount1);
 
 

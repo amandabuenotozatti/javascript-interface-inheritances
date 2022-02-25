@@ -5,10 +5,31 @@ export class Account {
         this._agency = agency;
     }
 
+    set cliente(newValue) {
+        if(newValue instanceof Client) {
+            this._client = newValue;
+        }
+    }
+
+    get cliente() {
+        return this._client;
+    }
+
+    get saldo() {
+        return this._balance;
+    }
+
     withdraw(value) {
-        if(this._balance >= value) {
-            this._balance -= value;
-            return value;
+        let fee = 1;
+        return this._withdraw(value, fee);
+    }
+
+
+    _withdraw(value, fee) {
+        const amountWithdraw = value * fee;
+        if(this._balance >= amountWithdraw) {
+            this._balance -= amountWithdraw;
+            return amountWithdraw;
         }
     }
 
