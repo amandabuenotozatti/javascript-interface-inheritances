@@ -25,6 +25,7 @@ export class CheckingAccount {
     constructor(agency, client) {
         this.agency = agency;
         this.client = client;
+        this._balance = 0;
         CheckingAccount.accountNumber += 1;
     }
 
