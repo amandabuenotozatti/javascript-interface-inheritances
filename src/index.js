@@ -1,23 +1,19 @@
+import { Manager } from "./Employees/Manager.js";
+import { Principal } from "./Employees/Principal.js";
+import { AuthenticationSystem } from "./AuthenticationSystem.js";
 import { Client } from "./Client.js";
-import { CheckingAccount } from "./CheckingAccount.js";
-import { SavingsAccount } from "./SavingsAcccount.js";
-import { SalaryAccount } from "./SalaryAccount.js";
 
-//We create modules to share code between the different files on my system, helping to organize it
+const principal = new Principal("Amanda", 12345678, 5000);
+principal.registerPassword("222");
+const principalLogged = AuthenticationSystem.login(principal, "222");
 
-const client1 = new Client("Melissa", 1234567890);
+const manager = new Manager("Arthur", 55555555, 3000);
+manager.registerPassword("111");
+const managerLogged = AuthenticationSystem.login(manager, "111");
 
-// JS is an open scope language and therefore it is possible 
-// to visualize any attribute or property of our class
+//console.log(principalLogged, managerLogged);
 
-
-const checkingAccount1 = new CheckingAccount(client1, 4003);
-const savingsAccount1 = new SavingsAccount(50, client1, 4004);
-const salaryAccount = new SalaryAccount(client1);
-
-salaryAccount.deposit(10);
-salaryAccount.withdraw(2);
-
-console.log(salaryAccount.balance);
-
-
+const client = new Client("Rebeca", 33333333333, "777");
+client.registerPassword("777");
+const clientLogged = AuthenticationSystem.login(client, "777");
+console.log(clientLogged);
