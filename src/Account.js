@@ -3,6 +3,10 @@ export class Account {
         this._balance = initialBalance;
         this._client = client;
         this._agency = agency;
+
+        if(this.constructor == Account){
+            throw new Error("You should not instantiate directly this type of object.");
+        }
     }
 
     set cliente(newValue) {
@@ -11,17 +15,15 @@ export class Account {
         }
     }
 
-    get cliente() {
+    get client() {
         return this._client;
     }
 
-    get saldo() {
+    get balance() {
         return this._balance;
     }
 
     withdraw(value) {
-        let fee = 1;
-        return this._withdraw(value, fee);
     }
 
 
