@@ -30,3 +30,18 @@
 - Polymorphism 
 - Static methods
 - Ways to treat different types of objects in a similar way
+
+</br>
+</br>
+</br>
+
+#### Checking properties and types
+> In JavaScript everything is very dynamic.
+We need to understand how it stores information.
+When we create an object it reserves a space in memory to store this new object. And this happens through a key and value system. So for each key, we have a memory space that stores the actual value of that property.
+> Through polymorphism, JS is able to treat different objects in similar ways and that's why we can authenticate different types of objects in our system.
+> JS is not a strongly typed language and so it doesn't just depend on predefined types but whether or not they have the properties we want to use.
+- instanceOf use 
+- memory storage
+- duck typing
+- operator in: used to find the atribute inside an object
